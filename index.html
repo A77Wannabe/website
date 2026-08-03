@@ -167,6 +167,7 @@
       color: white;
       background: rgba(255,255,255,0.05);
       backdrop-filter: blur(8px);
+      cursor: pointer;
     }
 
     .insta-circle:hover {
@@ -436,6 +437,23 @@
       justify-content: center;
     }
 
+    .contact-link {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    .contact-card {
+      cursor: pointer;
+      transition: all 0.4s ease;
+    }
+
+    .contact-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 25px 40px rgba(0,191,255,0.25);
+      border-color: rgba(0,191,255,0.3);
+    }
+
     @media (max-width: 900px) {
       .hero-grid, .about-grid {
         flex-direction: column;
@@ -474,7 +492,7 @@
         <li><a href="#">06 Testimonials</a></li>
       </ul>
       <div class="nav-actions">
-        <div class="insta-circle"><i data-lucide="instagram" size="20"></i></div>
+        <a href="https://instagram.com/centa.ltd" target="_blank" class="insta-circle"><i data-lucide="instagram" size="20"></i></a>
         <button class="dark-mode-btn" id="darkToggle"><i data-lucide="moon" size="18"></i> Dark</button>
       </div>
     </div>
@@ -550,9 +568,25 @@
     <section class="reveal">
       <h2 class="section-title">Let's build something <span>secure</span> together.</h2>
       <div style="display:grid; grid-template-columns: repeat(3,1fr); gap:28px; margin-top:48px;">
-        <div class="glass-card" style="padding:32px; background: rgba(0,191,255,0.08);"><i data-lucide="message-circle" size="32"></i><h3 style="margin:16px 0">WhatsApp</h3><p>+62 812-3456-7890</p></div>
-        <div class="glass-card" style="padding:32px;"><i data-lucide="instagram" size="32"></i><h3 style="margin:16px 0">Instagram</h3><p>@centa.secure</p></div>
-        <div class="glass-card" style="padding:32px;"><i data-lucide="map-pin" size="32"></i><h3 style="margin:16px 0">Location</h3><p>Jakarta, ID</p></div>
+        <a href="https://wa.me/6288989586927" target="_blank" class="contact-link">
+          <div class="glass-card contact-card" style="padding:32px; background: rgba(0,191,255,0.08);">
+            <i data-lucide="message-circle" size="32"></i>
+            <h3 style="margin:16px 0">WhatsApp</h3>
+            <p>+62 889-8958-6927</p>
+          </div>
+        </a>
+        <a href="https://instagram.com/centa.ltd" target="_blank" class="contact-link">
+          <div class="glass-card contact-card" style="padding:32px;">
+            <i data-lucide="instagram" size="32"></i>
+            <h3 style="margin:16px 0">Instagram</h3>
+            <p>@centa.ltd</p>
+          </div>
+        </a>
+        <div class="glass-card" style="padding:32px;">
+          <i data-lucide="map-pin" size="32"></i>
+          <h3 style="margin:16px 0">Location</h3>
+          <p>Surabaya, Indonesia</p>
+        </div>
       </div>
     </section>
 
