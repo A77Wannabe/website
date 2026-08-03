@@ -99,14 +99,6 @@
             border-color: rgba(0, 136, 204, 0.35);
             box-shadow: 0 25px 40px rgba(0, 0, 0, 0.12);
         }
-        body.light-mode .hero-card {
-            background: rgba(255, 255, 255, 0.75);
-            border-color: rgba(0, 136, 204, 0.25);
-            box-shadow: 0 30px 50px rgba(0, 0, 0, 0.15), 0 0 40px rgba(0, 136, 204, 0.1);
-        }
-        body.light-mode .threat-level {
-            background: rgba(0, 136, 204, 0.08);
-        }
         body.light-mode .badge-top {
             background: rgba(255, 255, 255, 0.85);
             border-color: rgba(0, 0, 0, 0.15);
@@ -489,22 +481,16 @@
 
         .hero-grid {
             display: flex;
-            align-items: center;
-            gap: 60px;
-            min-height: 100vh;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            min-height: 90vh;
             padding-top: 100px;
         }
 
         .hero-left {
-            flex: 0 0 50%;
-            min-width: 0;
-        }
-
-        .hero-right {
-            flex: 0 0 50%;
-            position: relative;
-            min-width: 0;
-            will-change: transform;
+            width: 100%;
+            max-width: 700px;
         }
 
         .hero-heading {
@@ -668,89 +654,6 @@
             transition: color 0.3s ease;
         }
 
-        .hero-card {
-            background: rgba(10, 15, 30, 0.8);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-radius: 28px;
-            border: 1px solid rgba(0, 191, 255, 0.2);
-            box-shadow: 0 30px 50px rgba(0, 0, 0, 0.7), 0 0 40px rgba(0, 191, 255, 0.15);
-            padding: 20px;
-            animation: float 6s ease-in-out infinite;
-            position: relative;
-            transition: box-shadow 0.5s ease, border-color 0.5s ease;
-            will-change: transform;
-        }
-
-        .hero-card:hover {
-            box-shadow: 0 35px 60px rgba(0, 0, 0, 0.8), 0 0 60px rgba(0, 191, 255, 0.25);
-            border-color: rgba(0, 191, 255, 0.4);
-        }
-
-        @keyframes float {
-            0% {
-                transform: translateY(0px);
-            }
-            50% {
-                transform: translateY(-14px);
-            }
-            100% {
-                transform: translateY(0px);
-            }
-        }
-
-        .hero-img {
-            width: 100%;
-            border-radius: 20px;
-            height: 320px;
-            object-fit: cover;
-            display: block;
-            transition: transform 0.6s ease;
-        }
-
-        .hero-card:hover .hero-img {
-            transform: scale(1.02);
-        }
-
-        .badge-top {
-            position: absolute;
-            top: 30px;
-            left: 30px;
-            background: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            padding: 6px 18px;
-            border-radius: 30px;
-            font-size: 0.8rem;
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            color: #00BFFF;
-            z-index: 3;
-            animation: badgePulse 3s ease-in-out infinite;
-            transition: all 0.35s ease;
-        }
-
-        @keyframes badgePulse {
-            0%,
-            100% {
-                box-shadow: 0 0 0 rgba(0, 191, 255, 0);
-            }
-            50% {
-                box-shadow: 0 0 18px rgba(0, 191, 255, 0.4);
-            }
-        }
-
-        .threat-level {
-            margin-top: 16px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: rgba(0, 191, 255, 0.08);
-            padding: 12px 20px;
-            border-radius: 16px;
-            font-weight: 600;
-            transition: background 0.4s ease;
-        }
-
         .glass-card {
             background: rgba(255, 255, 255, 0.02);
             backdrop-filter: blur(18px);
@@ -891,6 +794,29 @@
             transition: color 0.3s ease;
         }
 
+        .badge-top {
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 6px 18px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #00BFFF;
+            animation: badgePulse 3s ease-in-out infinite;
+            transition: all 0.35s ease;
+        }
+
+        @keyframes badgePulse {
+            0%,
+            100% {
+                box-shadow: 0 0 0 rgba(0, 191, 255, 0);
+            }
+            50% {
+                box-shadow: 0 0 18px rgba(0, 191, 255, 0.4);
+            }
+        }
+
         .checklist {
             list-style: none;
             margin: 24px 0;
@@ -1007,9 +933,6 @@
             .hero-heading {
                 font-size: 54px;
             }
-            .hero-grid {
-                gap: 40px;
-            }
             .section-title {
                 font-size: 2.6rem;
             }
@@ -1046,16 +969,9 @@
             .hero-heading {
                 font-size: 44px;
             }
-            .hero-grid {
-                gap: 32px;
-                padding-top: 90px;
-            }
             .hero-desc {
                 font-size: 1rem;
                 max-width: 100%;
-            }
-            .hero-img {
-                height: 250px;
             }
             .section-title {
                 font-size: 2.2rem;
@@ -1073,12 +989,6 @@
             }
             .stat h3 {
                 font-size: 1.6rem;
-            }
-            .badge-top {
-                top: 18px;
-                left: 18px;
-                font-size: 0.7rem;
-                padding: 5px 14px;
             }
         }
 
@@ -1117,15 +1027,8 @@
                 font-size: 1.5rem;
             }
             .hero-grid {
-                flex-direction: column;
-                gap: 36px;
+                min-height: 70vh;
                 padding-top: 80px;
-                min-height: auto;
-            }
-            .hero-left,
-            .hero-right {
-                flex: 1 1 auto;
-                width: 100%;
             }
             .hero-heading {
                 font-size: 38px;
@@ -1142,27 +1045,6 @@
             .btn-outline {
                 padding: 14px 28px;
                 font-size: 0.9rem;
-            }
-            .hero-img {
-                height: 220px;
-            }
-            .hero-card {
-                padding: 14px;
-                border-radius: 22px;
-            }
-            .hero-card .hero-img {
-                border-radius: 16px;
-            }
-            .badge-top {
-                top: 20px;
-                left: 20px;
-                font-size: 0.7rem;
-                padding: 4px 12px;
-            }
-            .threat-level {
-                padding: 10px 16px;
-                font-size: 0.85rem;
-                border-radius: 12px;
             }
             .section-title {
                 font-size: 2rem;
@@ -1254,9 +1136,6 @@
                 font-size: 0.9rem;
                 border-radius: 36px;
             }
-            .hero-img {
-                height: 190px;
-            }
             .stats {
                 display: grid;
                 grid-template-columns: 1fr 1fr;
@@ -1293,25 +1172,6 @@
             }
             section {
                 margin-bottom: 50px;
-            }
-            .badge-top {
-                top: 14px;
-                left: 14px;
-                font-size: 0.65rem;
-                padding: 3px 10px;
-                border-radius: 20px;
-            }
-            .threat-level {
-                padding: 8px 12px;
-                font-size: 0.78rem;
-                border-radius: 10px;
-            }
-            .hero-card {
-                padding: 10px;
-                border-radius: 18px;
-            }
-            .hero-card .hero-img {
-                border-radius: 12px;
             }
             .contact-grid {
                 grid-template-columns: 1fr !important;
@@ -1363,9 +1223,6 @@
             .hero-desc {
                 font-size: 0.8rem;
             }
-            .hero-img {
-                height: 160px;
-            }
             .section-title {
                 font-size: 1.4rem;
             }
@@ -1394,15 +1251,8 @@
         }
 
         @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-            .hero-grid {
-                gap: 30px;
-                padding-top: 80px;
-            }
             .hero-heading {
                 font-size: 40px;
-            }
-            .hero-img {
-                height: 230px;
             }
             .nav-menu {
                 gap: 16px;
@@ -1421,34 +1271,17 @@
         }
 
         @media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
-            .hero-grid {
-                flex-direction: column;
-                gap: 36px;
-                padding-top: 90px;
-                min-height: auto;
-            }
-            .hero-left,
-            .hero-right {
-                flex: 1 1 auto;
-                width: 100%;
+            .hero-heading {
+                font-size: 48px;
             }
             .services-grid,
             .apps-grid {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 18px;
             }
-            .hero-heading {
-                font-size: 48px;
-            }
-            .hero-img {
-                height: 280px;
-            }
         }
 
         @media (hover: none) and (pointer: coarse) {
-            .hero-card {
-                animation: float 8s ease-in-out infinite;
-            }
             .glass-card:hover {
                 transform: none;
             }
@@ -1478,9 +1311,6 @@
             }
             .section-title {
                 font-size: 3.6rem;
-            }
-            .hero-img {
-                height: 380px;
             }
         }
     </style>
@@ -1537,13 +1367,6 @@
                     <div class="stat"><h3 id="vulnCounter">0</h3><p>Vulnerabilities Patched</p></div>
                     <div class="stat"><h3>99.9%</h3><p>Uptime Delivered</p></div>
                     <div class="stat"><h3>24/7</h3><p>Monitoring</p></div>
-                </div>
-            </div>
-            <div class="hero-right" id="heroParallax">
-                <div class="hero-card">
-                    <span class="badge-top">Encrypted • Active</span>
-                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1000&auto=format&fit=crop" alt="cyber security" class="hero-img" loading="eager">
-                    <div class="threat-level"><span>Threat Level</span> <strong style="color:#00BFFF;">SECURE</strong></div>
                 </div>
             </div>
         </section>
@@ -1683,7 +1506,7 @@
 
         <section class="reveal about-flex" style="display: flex; gap:60px; align-items:center; flex-wrap:wrap;">
             <div style="flex:1; min-width:280px;">
-                <img src="centa.png" style="width:100%; border-radius:28px; border:1px solid rgba(255,255,255,0.1); transition: transform 0.6s ease; will-change: transform;" alt="Centa Logo" loading="lazy" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
+                <img src="centa.jpg" style="width:100%; border-radius:28px; border:1px solid rgba(255,255,255,0.1); transition: transform 0.6s ease; will-change: transform;" alt="Centa Logo" loading="lazy" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
             </div>
             <div style="flex:1; min-width:280px;">
                 <h2 class="section-title">About <span>Centa</span></h2>
@@ -1877,44 +1700,6 @@
         const statSection = document.querySelector('.stats');
         if (statSection) counterObserver.observe(statSection);
 
-        const heroParallax = document.getElementById('heroParallax');
-        const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-
-        if (!isTouchDevice && heroParallax) {
-            let rafId = null;
-            let targetX = 0;
-            let targetY = 0;
-            let currentX = 0;
-            let currentY = 0;
-
-            document.addEventListener('mousemove', (e) => {
-                targetX = (window.innerWidth / 2 - e.clientX) / 50;
-                targetY = (window.innerHeight / 2 - e.clientY) / 50;
-                if (!rafId) {
-                    rafId = requestAnimationFrame(updateParallax);
-                }
-            });
-
-            function updateParallax() {
-                currentX += (targetX - currentX) * 0.12;
-                currentY += (targetY - currentY) * 0.12;
-                heroParallax.style.transform = `translate(${currentX}px, ${currentY}px)`;
-                if (Math.abs(targetX - currentX) > 0.01 || Math.abs(targetY - currentY) > 0.01) {
-                    rafId = requestAnimationFrame(updateParallax);
-                } else {
-                    rafId = null;
-                }
-            }
-
-            document.addEventListener('mouseleave', () => {
-                targetX = 0;
-                targetY = 0;
-                if (!rafId) {
-                    rafId = requestAnimationFrame(updateParallax);
-                }
-            });
-        }
-
         const darkToggle = document.getElementById('darkToggle');
         darkToggle.addEventListener('click', function() {
             document.body.classList.toggle('light-mode');
@@ -1933,6 +1718,7 @@
             closeMenu();
         }
 
+        const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
         document.querySelectorAll('.glass-card').forEach(card => {
             card.addEventListener('mousemove', function(e) {
                 if (isTouchDevice) return;
