@@ -919,6 +919,8 @@
             position: relative;
             transition: color 0.35s ease;
             padding-bottom: 2px;
+            color: #aaa;
+            text-decoration: none;
         }
 
         .footer-links a::after {
@@ -1747,13 +1749,14 @@
             </div>
         </section>
 
-                   <div class="footer-links" style="margin-bottom:28px;">
-                <a href="#" style="color:#aaa; text-decoration:none;">Home</a>
-                <a href="#" style="color:#aaa; text-decoration:none;">Services</a>
-                <a href="#" style="color:#aaa; text-decoration:none;">Apps</a>
-                <a href="#" style="color:#aaa; text-decoration:none;">Contact</a>
+        <footer style="text-align:center; padding:60px 0; border-top:1px solid rgba(255,255,255,0.05);">
+            <div class="footer-links" style="margin-bottom:28px;">
+                <a href="#">Home</a>
+                <a href="#">Services</a>
+                <a href="#">Apps</a>
+                <a href="#">Contact</a>
             </div>
-            <p style="color:#666;" class="footer-bottom-text">&copy; 2026 Centa Limited.</p>
+            <p style="color:#666;" class="footer-bottom-text">&copy; 2026 Centa Limited. All rights reserved.</p>
         </footer>
     </main>
 
@@ -1832,7 +1835,7 @@
                     revealObserver.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+        }, { threshold: 0.05, rootMargin: '0px 0px 50px 0px' });
         revealElements.forEach(el => revealObserver.observe(el));
 
         const staggerElements = document.querySelectorAll('.reveal-stagger');
@@ -1843,7 +1846,7 @@
                     staggerObserver.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.08, rootMargin: '0px 0px -20px 0px' });
+        }, { threshold: 0.03, rootMargin: '0px 0px 60px 0px' });
         staggerElements.forEach(el => staggerObserver.observe(el));
 
         function animateCounter(id, start, end, duration) {
