@@ -4,9 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Centa Limited • Cyber Security Premium</title>
-  <!-- Lucide Icons CDN -->
   <script src="https://unpkg.com/lucide@latest"></script>
-  <!-- Font Space Grotesk -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -26,7 +24,6 @@
       position: relative;
     }
 
-    /* Background grid + radial glows */
     body::before {
       content: "";
       position: fixed;
@@ -89,7 +86,6 @@
       position: relative;
     }
 
-    /* ----- NAVBAR ----- */
     .navbar {
       position: fixed;
       top: 0;
@@ -130,7 +126,7 @@
     .logo .limited {
       color: #00BFFF;
       font-weight: 500;
-      font-size: 1rem;
+      font-size: 1.8rem;
       margin-left: 2px;
     }
 
@@ -200,7 +196,6 @@
       box-shadow: 0 0 20px #00BFFF40;
     }
 
-    /* ----- HERO ----- */
     .hero-grid {
       display: flex;
       align-items: center;
@@ -224,6 +219,7 @@
       letter-spacing: 2px;
       margin-bottom: 24px;
       font-weight: 500;
+      display: none;
     }
 
     .hero-heading {
@@ -348,7 +344,6 @@
       font-weight: 600;
     }
 
-    /* ----- CARDS & GLASS ----- */
     .glass-card {
       background: rgba(255, 255, 255, 0.02);
       backdrop-filter: blur(18px);
@@ -428,6 +423,12 @@
       margin-bottom: 12px;
     }
 
+    .about-image {
+      width: 100%;
+      border-radius: 28px;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
     .footer-links {
       display: flex;
       gap: 48px;
@@ -480,7 +481,6 @@
   </nav>
 
   <main class="container">
-    <!-- HERO -->
     <section class="hero-grid reveal">
       <div class="hero-left">
         <div class="pre-title">Cyber Security • Mobile Apps • Cloud</div>
@@ -506,7 +506,6 @@
       </div>
     </section>
 
-    <!-- SERVICES -->
     <section class="reveal">
       <h2 class="section-title">Professional <span>Services</span></h2>
       <p class="subtitle">End-to-end security solutions for modern infrastructure.</p>
@@ -520,7 +519,6 @@
       </div>
     </section>
 
-    <!-- APPS -->
     <section class="reveal">
       <h2 class="section-title">Built for the <span>Play Store</span></h2>
       <p class="subtitle">Secure mobile experiences trusted by millions.</p>
@@ -531,9 +529,8 @@
       </div>
     </section>
 
-    <!-- ABOUT -->
     <section class="reveal" style="display: flex; gap:60px; align-items:center; flex-wrap:wrap;">
-      <div style="flex:1;"><img src="https://images.unsplash.com/photo-1563986768609-322da13575f2?q=80&w=800&auto=format&fit=crop" style="width:100%; border-radius:28px; border:1px solid rgba(255,255,255,0.1);"></div>
+      <div style="flex:1;"><img src="centa.jpg" alt="Centa Limited" class="about-image"></div>
       <div style="flex:1;">
         <h2 class="section-title">About <span>Centa</span></h2>
         <p style="color:#bbb; margin-bottom:24px;">We combine offensive security expertise with elite development to deliver resilient digital products.</p>
@@ -550,7 +547,6 @@
       </div>
     </section>
 
-    <!-- CONTACT -->
     <section class="reveal">
       <h2 class="section-title">Let's build something <span>secure</span> together.</h2>
       <div style="display:grid; grid-template-columns: repeat(3,1fr); gap:28px; margin-top:48px;">
@@ -575,13 +571,11 @@
   <script>
     lucide.createIcons();
 
-    // Navbar blur on scroll
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
       navbar.classList.toggle('scrolled', window.scrollY > 20);
     });
 
-    // Reveal animation
     const revealElements = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -590,7 +584,6 @@
     }, { threshold: 0.15 });
     revealElements.forEach(el => observer.observe(el));
 
-    // Counter animation
     function animateCounter(id, start, end, duration) {
       const el = document.getElementById(id);
       let startTime = null;
@@ -602,6 +595,7 @@
       };
       requestAnimationFrame(step);
     }
+    
     const counterObserver = new IntersectionObserver((entries) => {
       if (entries[0].isIntersecting) {
         animateCounter('appsCounter', 0, 15, 1500);
@@ -609,10 +603,10 @@
         counterObserver.unobserve(entries[0].target);
       }
     }, { threshold: 0.5 });
+    
     const statSection = document.querySelector('.stats');
     if (statSection) counterObserver.observe(statSection);
 
-    // Mouse parallax on hero image
     const heroParallax = document.getElementById('heroParallax');
     document.addEventListener('mousemove', (e) => {
       if (!heroParallax) return;
@@ -621,7 +615,6 @@
       heroParallax.style.transform = `translate(${x}px, ${y}px)`;
     });
 
-    // Dark mode toggle (simple theme switch)
     document.getElementById('darkToggle').addEventListener('click', function() {
       document.body.style.backgroundColor = document.body.style.backgroundColor === 'white' ? '#050816' : 'white';
     });
