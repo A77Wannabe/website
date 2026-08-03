@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Centa Limited &bull; Cyber Security Premium</title>
+    <title>Centa Limited • Cyber Security Premium</title>
     <script src="https://unpkg.com/lucide@latest">
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -64,7 +64,6 @@
             background: rgba(240, 242, 245, 0.85);
             border-bottom: 1px solid rgba(0, 0, 0, 0.1);
         }
-
         body.light-mode .nav-menu a {
             color: #333;
         }
@@ -1540,7 +1539,7 @@
             </div>
             <div class="hero-right" id="heroParallax">
                 <div class="hero-card">
-                    <span class="badge-top">Encrypted &bull; Active</span>
+                    <span class="badge-top">Encrypted • Active</span>
                     <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1000&auto=format&fit=crop" alt="cyber security" class="hero-img" loading="eager">
                     <div class="threat-level"><span>Threat Level</span> <strong style="color:#00BFFF;">SECURE</strong></div>
                 </div>
@@ -1762,6 +1761,13 @@
 
     <script>
         lucide.createIcons();
+
+        window.addEventListener('load', function() {
+            window.scrollTo(0, 0);
+            if (document.activeElement && document.activeElement !== document.body) {
+                document.activeElement.blur();
+            }
+        });
 
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
